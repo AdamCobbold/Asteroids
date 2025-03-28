@@ -41,6 +41,10 @@ def main():
         for rock in asteroids:
             if player.check_col(rock) <= player.radius + rock.radius:
                 exit("Game Over!")
+            for bul in shots:
+                if bul.check_col(rock) <= bul.radius + rock.radius:
+                    bul.kill()
+                    rock.split()
         screen.fill(000000)
         for item in drawable:
             item.draw(screen)
